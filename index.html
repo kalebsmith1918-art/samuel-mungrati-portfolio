@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0b0b0d" />
+<meta name="description" content="The portfolio of Samuel Mungrati — Video Editor & Media Head." />
+<title>Samuel Mungrati — Video Editor & Media Head</title>
+<style>
+:root {
+  --site-primary: #b8ff5c;
+  --site-secondary: #17191a;
+  --site-background: #0b0b0d;
+  --site-on-primary: #10120d;
+  --site-on-secondary: #f5f5f0;
+  --site-on-background: #f5f5f0;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --bg: #0b0b0d;
+  --panel: #121315;
+  --panel-2: #191b1d;
+  --muted: #a3a5a2;
+  --line: rgba(255,255,255,.12);
+  --lime: #b8ff5c;
+  --white: #f5f5f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--white); font-family: var(--site-font-body); }
+button, a { font: inherit; }
+a { color: inherit; text-decoration: none; }
+.site-root { min-height: 100vh; width: 100%; border-radius: 0; overflow: hidden; background-color: var(--site-background); color: var(--site-on-background); position: relative; }
+.site-root::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:calc(.45 * var(--site-decoration-opacity)); background: radial-gradient(ellipse at 80% 10%, rgba(184,255,92,.12), transparent 34%), radial-gradient(ellipse at 15% 45%, rgba(102,113,255,.08), transparent 28%); }
+.site-root > * { position: relative; }
+.wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+nav { display:flex; justify-content:space-between; align-items:center; padding: 25px 0; border-bottom:1px solid var(--line); }
+.brand { display:flex; gap:11px; align-items:center; font-weight:800; letter-spacing:-.04em; }
+.brand-mark { width:35px; height:35px; border-radius:11px; display:grid; place-items:center; background:var(--lime); color:#10120d; font-size:14px; font-weight:950; }
+.brand span:last-child { font-size:14px; letter-spacing:-.02em; }
+.navlinks { display:flex; align-items:center; gap:28px; color:#c2c4c0; font-size:13px; }
+.navlinks a:hover { color:var(--lime); }
+.nav-cta { color:var(--lime)!important; border:1px solid rgba(184,255,92,.45); border-radius:999px; padding:10px 15px; }
+.hero { display:grid; grid-template-columns:1.12fr .88fr; gap:58px; align-items:center; padding:100px 0 86px; }
+.eyebrow { color:var(--lime); text-transform:uppercase; letter-spacing:.19em; font-size:11px; font-weight:800; display:flex; gap:10px; align-items:center; }
+.eyebrow::before { content:""; width:25px; height:1px; background:var(--lime); }
+h1 { font-family:var(--site-font-heading); font-size:clamp(48px, 7vw, 88px); letter-spacing:-.085em; line-height:.94; margin:22px 0 24px; font-weight:800; }
+h1 span { color:var(--lime); }
+.hero-copy { max-width:530px; color:#b5b7b2; line-height:1.8; font-size:15px; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:31px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; border-radius:999px; padding:14px 19px; font-size:13px; font-weight:800; transition:transform .2s ease, background .2s ease; }
+.btn:hover { transform:translateY(-3px); }
+.btn-primary { background:var(--lime); color:#10120d; }
+.btn-secondary { border:1px solid var(--line); color:var(--white); }
+.hero-visual { min-height:430px; position:relative; display:flex; align-items:center; justify-content:center; }
+.visual-frame { width:min(100%,420px); aspect-ratio: .86; border:1px solid rgba(255,255,255,.15); border-radius:24px; overflow:hidden; position:relative; background:linear-gradient(145deg,#272b25,#101113 60%); box-shadow:0 35px 90px rgba(0,0,0,.38); }
+.visual-frame::before { content:""; position:absolute; inset:0; background:linear-gradient(135deg,transparent 35%,rgba(184,255,92,.15)), repeating-linear-gradient(135deg,transparent 0 34px,rgba(255,255,255,.025) 35px 36px); }
+.visual-grid { position:absolute; inset:0; display:grid; place-items:center; }
+.play-ring { width:112px; height:112px; border:1px solid rgba(184,255,92,.65); border-radius:50%; display:grid; place-items:center; box-shadow:0 0 70px rgba(184,255,92,.08); }
+.play { width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:18px solid var(--lime); margin-left:5px; }
+.frame-label { position:absolute; left:24px; right:24px; bottom:24px; display:flex; align-items:end; justify-content:space-between; gap:15px; }
+.frame-label small { display:block; color:#c3c7bc; font-size:10px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:8px; }
+.frame-label strong { font-size:23px; letter-spacing:-.06em; }
+.frame-number { font-size:12px; color:var(--lime); }
+.float-tag { position:absolute; background:#1a1c1d; border:1px solid var(--line); border-radius:14px; padding:14px 16px; box-shadow:0 18px 45px rgba(0,0,0,.3); }
+.float-tag strong { display:block; font-size:13px; margin-bottom:4px; }
+.float-tag span { font-size:11px; color:var(--muted); }
+.tag-one { top:48px; left:-12px; }
+.tag-two { bottom:42px; right:-8px; }
+.tag-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--lime); margin-right:6px; }
+.ticker { border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; }
+.ticker-inner { display:flex; gap:32px; align-items:center; justify-content:space-between; padding:19px 0; color:#9fa19d; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.16em; }
+.ticker b { color:var(--lime); font-size:17px; }
+section { padding:92px 0; }
+.section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:34px; }
+.kicker { color:var(--lime); font-size:11px; letter-spacing:.17em; text-transform:uppercase; font-weight:800; margin-bottom:13px; }
+h2 { font-size:clamp(34px,4.8vw,54px); letter-spacing:-.07em; line-height:1; margin:0; }
+.section-note { color:var(--muted); max-width:350px; line-height:1.7; font-size:13px; }
+.work-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.video-card { overflow:hidden; border:1px solid var(--line); border-radius:19px; background:#121315; transition:transform .25s ease,border-color .25s ease; }
+.video-card:hover { transform:translateY(-5px); border-color:rgba(184,255,92,.5); }
+.video-frame { position:relative; width:100%; aspect-ratio:16 / 9; background:#17191a; }
+.video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.video-thumb { position:absolute; inset:0; display:block; width:100%; height:100%; padding:0; border:0; cursor:pointer; background:#17191a; overflow:hidden; }
+.video-thumb img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+.video-thumb:hover img { transform:scale(1.04); }
+.video-thumb::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.24)); }
+.thumb-play { position:absolute; z-index:2; left:50%; top:50%; transform:translate(-50%,-50%); width:62px; height:62px; border-radius:50%; display:grid; place-items:center; border:1px solid rgba(255,255,255,.8); background:rgba(10,12,10,.62); color:var(--lime); font-size:21px; padding-left:3px; box-shadow:0 0 0 8px rgba(255,255,255,.08); }
+.video-thumb:focus-visible { outline:3px solid var(--lime); outline-offset:-4px; }
+.hero-feature { position:absolute; inset:0; display:block; border-radius:24px; overflow:hidden; }
+.hero-feature img { width:100%; height:100%; object-fit:cover; display:block; opacity:.96; }
+.photo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.photo-card { margin:0; position:relative; overflow:hidden; border-radius:18px; border:1px solid var(--line); background:var(--panel); aspect-ratio:4/3; }
+.photo-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.photo-card:hover img { transform:scale(1.045); }
+.photo-card figcaption { position:absolute; inset:auto 0 0; padding:35px 18px 16px; background:linear-gradient(transparent,rgba(0,0,0,.8)); color:white; font-size:12px; font-weight:750; letter-spacing:.04em; }
+@media (max-width:760px) { .photo-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:480px) { .photo-grid { grid-template-columns:1fr; } }
+.hero-feature::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,11,12,.03) 20%,rgba(10,11,12,.88) 100%); }
+.hero-feature .play-ring { position:absolute; z-index:2; top:42%; left:50%; transform:translate(-50%,-50%); }
+.visual-frame:has(.hero-feature) { background:#17191a; }
+.visual-frame:has(.hero-feature)::before { z-index:1; pointer-events:none; }
+.visual-frame .frame-label { z-index:3; }
+.video-info { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:20px 22px; }
+.video-info small { display:block; color:#c2c5be; text-transform:uppercase; letter-spacing:.15em; font-size:9px; margin-bottom:8px; }
+.video-info h3 { margin:0; font-size:19px; letter-spacing:-.04em; }
+.video-info .arrow { flex-shrink:0; }
+.contact-actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.contact .btn-outline { border:1px solid rgba(16,18,13,.35); background:transparent; color:#10120d; }
+.work-card { min-height:310px; border-radius:19px; overflow:hidden; position:relative; border:1px solid var(--line); background:#17191a; transition:transform .25s ease,border-color .25s ease; }
+.work-card:hover { transform:translateY(-5px); border-color:rgba(184,255,92,.5); }
+.work-art { position:absolute; inset:0; overflow:hidden; }
+.work-art::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.88)); z-index:1; }
+.art-a { background:radial-gradient(ellipse at 70% 30%,#c1a46a 0,#6b4c37 16%,transparent 43%),linear-gradient(130deg,#27322b,#111312 60%); }
+.art-b { background:radial-gradient(ellipse at 25% 30%,#6c82a9 0,#28364f 22%,transparent 50%),linear-gradient(140deg,#252a3b,#101114 68%); }
+.art-c { background:radial-gradient(ellipse at 70% 25%,#e1a1a1 0,#8b4b55 18%,transparent 44%),linear-gradient(140deg,#3a1f2b,#111114 65%); }
+.art-d { background:radial-gradient(ellipse at 35% 25%,#a7d3ad 0,#3b6751 20%,transparent 48%),linear-gradient(140deg,#23372d,#101211 65%); }
+.art-lines { position:absolute; inset:0; opacity:.45; background:repeating-linear-gradient(115deg,transparent 0 42px,rgba(255,255,255,.08) 43px 44px); }
+.art-play { position:absolute; top:35%; left:50%; transform:translate(-50%,-50%); width:58px;height:58px;border:1px solid rgba(255,255,255,.65);border-radius:50%;z-index:2;display:grid;place-items:center; }
+.art-play::after { content:""; width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid white;margin-left:3px; }
+.work-meta { position:absolute; z-index:2; left:24px; right:24px; bottom:22px; display:flex; justify-content:space-between; align-items:end; gap:12px; }
+.work-meta small { display:block; color:#c2c5be; text-transform:uppercase; letter-spacing:.15em; font-size:9px; margin-bottom:8px; }
+.work-meta h3 { font-size:21px; letter-spacing:-.05em; margin:0; }
+.arrow { color:var(--lime); font-size:22px; }
+.note { margin-top:16px; color:#777b75; font-size:11px; }
+.about-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start; }
+.about-card { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:28px; }
+.about-monogram { width:70px;height:70px;display:grid;place-items:center;border-radius:19px;background:var(--lime);color:#10120d;font-size:23px;font-weight:950;letter-spacing:-.07em;margin-bottom:24px; }
+.about-card h3 { margin:0 0 10px; font-size:22px; letter-spacing:-.05em; }
+.about-card p { color:var(--muted); line-height:1.75; font-size:13px; margin:0; }
+.about-copy p { color:#b6b8b3; font-size:15px; line-height:1.9; margin:0 0 20px; }
+.skills { display:flex; flex-wrap:wrap; gap:9px; margin-top:28px; }
+.skills span { border:1px solid var(--line); border-radius:999px; padding:10px 13px; font-size:11px; color:#d5d7d1; }
+.skills span:first-child { border-color:rgba(184,255,92,.5); color:var(--lime); }
+.process { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.process-card { background:var(--panel); border:1px solid var(--line); border-radius:17px; padding:24px; }
+.process-num { color:var(--lime); font-size:11px; letter-spacing:.16em; margin-bottom:30px; }
+.process-card h3 { margin:0 0 10px; font-size:18px; letter-spacing:-.04em; }
+.process-card p { margin:0; color:var(--muted); font-size:12px; line-height:1.8; }
+.contact { background:var(--lime); color:#11130e; border-radius:24px; padding:clamp(28px,6vw,65px); display:flex; justify-content:space-between; align-items:end; gap:30px; }
+.contact .kicker { color:#3c5724; }
+.contact h2 { max-width:650px; }
+.contact p { color:#3e4934; line-height:1.7; font-size:13px; max-width:480px; }
+.contact .btn { background:#10120d; color:#f5f5f0; white-space:nowrap; }
+footer { padding:30px 0; display:flex; justify-content:space-between; align-items:center; gap:20px; color:#858781; font-size:11px; }
+footer strong { color:#e9eae5; }
+.socials { display:flex; gap:20px; }
+.socials a:hover { color:var(--lime); }
+@media (max-width:760px) {
+ .wrap { width:min(100% - 32px, 600px); }
+ nav { padding:18px 0; }
+ .navlinks { gap:14px; }
+ .navlinks a:not(.nav-cta) { display:none; }
+ .hero { grid-template-columns:1fr; gap:30px; padding:66px 0 60px; }
+ h1 { font-size:clamp(49px,14vw,76px); }
+ .hero-visual { min-height:360px; }
+ .visual-frame { max-width:340px; }
+ .tag-one { left:0; }
+ .tag-two { right:0; }
+ .ticker-inner { justify-content:flex-start; overflow:hidden; gap:20px; white-space:nowrap; font-size:9px; }
+ section { padding:65px 0; }
+ .section-head { display:block; }
+ .section-note { margin-top:16px; }
+ .work-grid,.about-grid { grid-template-columns:1fr; }
+ .work-card { min-height:270px; }
+ .about-grid { gap:25px; }
+ .process { grid-template-columns:1fr; }
+ .process-num { margin-bottom:18px; }
+ .contact { align-items:flex-start; flex-direction:column; }
+ footer { align-items:flex-start; flex-direction:column; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
+</style>
+</head>
+<body>
+<div class="site-root" data-sites-preview-theme="custom">
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Samuel Mungrati home"><span class="brand-mark">SM</span><span>SAMUEL MUNGRATI<span style="color:var(--lime)">.</span></span></a>
+      <div class="navlinks"><a href="#work">Selected work</a><a href="#photography">Photography</a><a href="#about">About</a><a href="#process">Process</a><a class="nav-cta" href="#contact">Let's talk ↗</a></div>
+    </nav>
+    <main>
+      <section class="hero" id="home" style="padding-top:100px">
+        <div>
+          <div class="eyebrow">Video Editor · Media Head at Abundant Harvest Church</div>
+          <h1>Stories in<br>motion.<br><span>Made to feel.</span></h1>
+          <p class="hero-copy">I'm Samuel Mungrati, a video editor and Media Head at Abundant Harvest Church. I edit YouTube videos, Reels, Shorts, worship sessions, and preaching content—using rhythm, motion, and detail to help every story connect with its audience.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#work">Explore my work <span>↘</span></a><a class="btn btn-secondary" href="#contact">Get in touch <span>↗</span></a></div>
+        </div>
+        <div class="hero-visual" aria-label="Samuel Mungrati portrait and portfolio">
+          <div class="float-tag tag-one"><strong><i class="tag-dot"></i>Adobe Creative Suite</strong><span>Premiere Pro · After Effects · Photoshop</span></div>
+          <div class="visual-frame"><a class="hero-feature" href="https://youtu.be/sJUx02FA14o" target="_blank" rel="noopener noreferrer" aria-label="Watch Samuel's featured video on YouTube"><img src="assets/portrait.jpg" alt="Samuel Mungrati standing in front of a car" fetchpriority="high"><span class="play-ring"><span class="play"></span></span></a><div class="frame-label"><div><small>Video Editor · Photographer</small><strong>Samuel<br>Mungrati.</strong></div><div class="frame-number">SM—001</div></div></div>
+          <div class="float-tag tag-two"><strong>Abundant Harvest Church</strong><span>Media Head · Church & Digital Content</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="ticker"><div class="wrap ticker-inner"><span>YouTube Editing</span><b>✳</b><span>Reels & Shorts</span><b>✳</b><span>Worship & Preaching</span><b>✳</b><span>Adobe Creative Tools</span></div></div>
+  <div class="wrap">
+    <section id="work">
+      <div class="section-head"><div><div class="kicker">01 / Selected work</div><h2>Frames worth<br>remembering.</h2></div><p class="section-note">A few selected edits from Samuel’s YouTube work. Play the videos here or open them directly on YouTube.</p></div>
+      <div class="work-grid">
+        <article class="video-card"><div class="video-frame" data-video-id="sJUx02FA14o"><a class="video-thumb" href="https://youtu.be/sJUx02FA14o" target="_blank" rel="noopener noreferrer" aria-label="Watch video 1 on YouTube"><img src="https://img.youtube.com/vi/sJUx02FA14o/hqdefault.jpg" alt="Thumbnail for Samuel Mungrati's first video" loading="lazy"><span class="thumb-play">▶</span></a></div><div class="video-info"><div><small>SELECTED WORK · VIDEO 01</small><h3>YouTube Edit</h3></div><a class="arrow" href="https://youtu.be/sJUx02FA14o" target="_blank" rel="noopener noreferrer" aria-label="Open video 1 on YouTube">↗</a></div></article>
+        <article class="video-card"><div class="video-frame" data-video-id="wkwzkFMZFY0"><a class="video-thumb" href="https://youtu.be/wkwzkFMZFY0" target="_blank" rel="noopener noreferrer" aria-label="Watch video 2 on YouTube"><img src="https://img.youtube.com/vi/wkwzkFMZFY0/hqdefault.jpg" alt="Thumbnail for Samuel Mungrati's second video" loading="lazy"><span class="thumb-play">▶</span></a></div><div class="video-info"><div><small>SELECTED WORK · VIDEO 02</small><h3>YouTube Edit</h3></div><a class="arrow" href="https://youtu.be/wkwzkFMZFY0" target="_blank" rel="noopener noreferrer" aria-label="Open video 2 on YouTube">↗</a></div></article>
+      </div>
+      <p class="note">Video titles can be customized once you confirm what each project is called.</p>
+    </section>
+    <section id="photography">
+      <div class="section-head"><div><div class="kicker">02 / Photography</div><h2>Moments beyond<br>the timeline.</h2></div><p class="section-note">A selection of Samuel’s photography, from Nepal’s mountain landscapes to everyday details and lakeside moments.</p></div>
+      <div class="photo-grid">
+        <figure class="photo-card"><img src="assets/mountain-1.jpg" alt="Snow-covered Himalayan mountain beneath a clear blue sky" loading="lazy"><figcaption>Himalayan Landscapes</figcaption></figure>
+        <figure class="photo-card"><img src="assets/mountain-2.jpg" alt="Snowy mountain peak rising above clouds" loading="lazy"><figcaption>Mountain Light</figcaption></figure>
+        <figure class="photo-card"><img src="assets/mountain-3.jpg" alt="Himalayan range above a green neighborhood" loading="lazy"><figcaption>Home in the Hills</figcaption></figure>
+        <figure class="photo-card"><img src="assets/camera-lake.jpg" alt="Samuel with a camera beside colorful boats at a lake" loading="lazy"><figcaption>Behind the Camera</figcaption></figure>
+        <figure class="photo-card"><img src="assets/camera-lake-2.jpg" alt="Samuel seated on a boat with his camera at a lake" loading="lazy"><figcaption>Lakeside Stories</figcaption></figure>
+        <figure class="photo-card"><img src="assets/rice-field.jpg" alt="Close-up photograph of ripening rice plants" loading="lazy"><figcaption>Details in Nature</figcaption></figure>
+      </div>
+    </section>
+    <section id="about">
+      <div class="about-grid">
+        <div class="about-card"><div class="about-monogram">SM</div><h3>Samuel Mungrati</h3><p>Video Editor & Media Head<br>Abundant Harvest Church</p></div>
+        <div class="about-copy"><div class="kicker">03 / Behind the edits</div><h2>Good editing is<br>felt, not noticed.</h2><p>From YouTube videos and short-form social content to worship sessions and preaching, Samuel shapes footage into clear, engaging visual stories. His approach brings together thoughtful pacing, sound, motion, and detail.</p><p>As Media Head at Abundant Harvest Church, he supports church media that helps share messages, worship, and community moments with viewers both in-person and online.</p><div class="skills"><span>Adobe Premiere Pro</span><span>After Effects</span><span>Photoshop</span><span>YouTube Editing</span><span>Reels & Shorts</span><span>Church Media</span><span>Motion Graphics</span></div></div>
+      </div>
+    </section>
+    <section id="process">
+      <div class="section-head"><div><div class="kicker">04 / The approach</div><h2>From raw footage<br>to real impact.</h2></div><p class="section-note">A simple, thoughtful process that keeps the story at the centre of every decision.</p></div>
+      <div class="process"><article class="process-card"><div class="process-num">STEP / 01</div><h3>Find the story</h3><p>Understand the purpose, audience, and feeling the final video should leave behind.</p></article><article class="process-card"><div class="process-num">STEP / 02</div><h3>Shape the rhythm</h3><p>Build a clear edit with intentional pacing, visual flow, sound, and detail.</p></article><article class="process-card"><div class="process-num">STEP / 03</div><h3>Polish the frame</h3><p>Refine the final piece so the message feels cohesive, considered, and ready to share.</p></article></div>
+    </section>
+    <section id="contact" style="padding-top:20px;padding-bottom:70px">
+      <div class="contact"><div><div class="kicker">05 / Start a conversation</div><h2>Have a story that deserves to be seen?</h2><p>For collaborations, video editing projects, or professional enquiries, reach out and let's make something meaningful.</p></div><div class="contact-actions"><a class="btn" href="https://wa.me/9779745306142" target="_blank" rel="noopener noreferrer">WhatsApp Samuel ↗</a><a class="btn btn-outline" href="https://www.facebook.com/search/top?q=samuel%20mungrati" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div></div>
+    </section>
+  </div>
+  <footer class="wrap"><div>© <span id="year"></span> <strong>Samuel Mungrati</strong>. Crafted with intention.</div><div class="socials"><a href="https://www.youtube.com/channel/UCh9F9Y3i9uW7xKNCBMOFWfQ" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.facebook.com/search/top?q=samuel%20mungrati" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://wa.me/9779745306142" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></footer>
+</div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+// Portfolio links and WhatsApp contact are connected. YouTube thumbnails require an internet connection.
+</script>
+</body>
+</html>
